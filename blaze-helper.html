@@ -1,0 +1,88 @@
+<head>
+  <title>blaze-helper</title>
+</head>
+
+<body>
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <h1>Blaze Block Helpers!</h1>
+  {{{greeting}}}
+
+  {{>example1}}
+
+  {{>example2}}
+</template>
+
+<template name="example1">
+  <div class="example">
+	  <h2>Example 1 <input size=3 value="{{numberValue}}"></h2>
+	  <p>
+	  {{#ifEven value=numberValue}}
+	    {{numberValue}} is even
+	  {{else}}
+	    {{numberValue}} is odd
+	  {{/ifEven}}
+	  </p>
+  </div>
+</template>
+
+<template name="example2">
+<div class=feedback>Feedback:<ol></ol></div>
+  <div class="example">
+	  <h2>Example 2 <input type=checkbox {{isChecked}}> &lt;&lt;- checkbox </h2>
+	  <h3>Why does the helper function <i>maybeDiv</i> fire twice when the checkbox is toggled?</h3>
+	  <p style="white-space: pre">
+	  {{#maybeDiv checked=isChecked}}
+<code>&lt;input type=checkbox {{cbo}}isChecked{{cbc}}&gt;
+
+{{cbo}}#maybeDiv checked=isChecked{{cbc}}
+	content
+{{cbo}}/maybeDiv{{cbc}}
+
+&lt;template name="_maybeDiv_wrapInDiv"&gt;
+  &lt;div class="wrapper"&gt;
+    {{cbo}} &gt; content {{cbc}}
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;template name="_maybeDiv_noop"&gt;
+  {{cbo}} &gt; content {{cbc}}
+&lt;/template&gt;
+
+
+Template.example2.isChecked = function() {
+  return Session.get('maybeDiv') ? "checked" : null;
+};
+
+Handlebars.registerHelper('<b>maybeDiv</b>', function () {
+  $('div.feedback ol').append('&lt;li&gt;Handlebars Helper maybeDiv&lt;/li&gt;');
+  var o = this.valueOf();
+  if (o['checked'])
+    return Template._maybeDiv_wrapInDiv;
+  else
+    return Template._maybeDiv_noop;
+});</code>
+	  {{/maybeDiv}}
+	  </p>
+  </div>
+</template>
+
+<template name="ifEven">
+  {{#if isEven value}}
+    {{> content}}
+  {{else}}
+    {{> elseContent}}
+  {{/if}}
+</template>
+
+<template name="_maybeDiv_wrapInDiv">
+  <div class="wrapper">
+    {{> content}}
+  </div>
+</template>
+
+<template name="_maybeDiv_noop">
+  {{> content}}
+</template>

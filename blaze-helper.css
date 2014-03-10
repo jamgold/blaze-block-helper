@@ -1,0 +1,43 @@
+/* CSS declarations go here */
+
+div.wrapper {
+	border: 5px solid red;
+	border-radius: 5px;
+}
+
+div.example {
+	border: 3px solid #aaa;
+	width: 500px;
+	padding:0px;
+	margin: 10px auto;
+	border-radius: 5px;
+}
+
+div.feedback {
+	height: 25em;
+	width: 25em;
+	overflow: auto;
+	float: left;
+	color: #aaa;
+	border:1px solid #aaa;
+	border-radius:3px;
+	font-size: 12px;
+}
+div.example h2 {
+	margin-top:0px;
+	background-color: #aaa;
+	padding: .4em;
+	color: #666;
+}
+
+div.example h3 {
+	color: red;
+}
+
+div.example p {
+	padding: 1em;
+}
+
+div.example p code {
+	white-space: pre;
+}
