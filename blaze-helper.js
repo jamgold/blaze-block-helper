@@ -2,7 +2,7 @@ if (Meteor.isClient) {
   Session.setDefault('numberValue', 3);
 
   Template.hello.greeting = function () {
-    return "These are from the <a href=https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fmeteor%2Fmeteor%2Fwiki%2FUsing-Blaze%23wiki-new-pattern-for-defining-custom-block-helpers&sa=D&sntz=1&usg=AFQjCNHrtRb3JCShPheqM4GxyudnAgrE4w>examples</a>";
+    return "These are from the <a href=https://github.com/meteor/meteor/wiki/Using-Blaze#wiki-new-pattern-for-defining-custom-block-helpers>examples</a>";
   };
 
   Template.hello.selectOptions = function() {
