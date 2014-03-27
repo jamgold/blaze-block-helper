@@ -5,6 +5,10 @@ if (Meteor.isClient) {
     return "These are from the <a href=https://github.com/meteor/meteor/wiki/Using-Blaze#wiki-new-pattern-for-defining-custom-block-helpers>examples</a>";
   };
 
+  Template.hello.release = function() {
+    return Meteor.release;
+  };
+
   Template.hello.selectOptions = function() {
     return ['red', 'green', 'blue'];
   };

@@ -7,7 +7,7 @@
 </body>
 
 <template name="hello">
-  <h1>Blaze Block Helpers!</h1>
+  <h1>Blaze Block Helpers! {{release}}</h1>
   {{{greeting}}}
 
   {{>example1}}
@@ -71,18 +71,18 @@ Handlebars.registerHelper('<b>maybeDiv</b>', function () {
 
 <template name="ifEven">
   {{#if isEven value}}
-    {{> content}}
+    {{> UI.contentBlock}}
   {{else}}
-    {{> elseContent}}
+    {{> UI.elseBlock}}
   {{/if}}
 </template>
 
 <template name="_maybeDiv_wrapInDiv">
   <div class="wrapper">
-    {{> content}}
+    {{> UI.contentBlock}}
   </div>
 </template>
 
 <template name="_maybeDiv_noop">
-  {{> content}}
+  {{> UI.contentBlock}}
 </template>
